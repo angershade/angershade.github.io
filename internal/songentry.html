@@ -19,10 +19,8 @@
         
         <!-- Repeat the above pattern for other fields -->
 
-        <input type="submit" value="Generate HTML">
+        <input type="submit" value="Generate XML">
     </form>
-
-    <div id="result"></div>
 
     <script>
         document.getElementById("musicForm").addEventListener("submit", function(event) {
@@ -31,16 +29,27 @@
             // Get form data
             const formData = new FormData(event.target);
 
-            // Construct HTML page
-            let html = "<h2>Music Index</h2>";
-            html += "<ul>";
+            // Construct XML
+            let xml = "<song>";
             formData.forEach((value, key) => {
-                html += `<li><strong>${key}:</strong> ${value}</li>`;
+                xml += `<${key}>${value}</${key}>`;
             });
-            html += "</ul>";
+            xml += "</song>";
 
-            // Display HTML page
-            document.getElementById("result").innerHTML = html;
+            // Convert XML to Blob
+            const blob = new Blob([xml], { type: "text/xml" });
+
+            // Create download link
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "music_index.xml";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            // Revoke Object URL
+            URL.revokeObjectURL(url);
         });
     </script>
 </body>
