@@ -23,11 +23,9 @@
         <label for="albumArt">Album Art:</label><br>
         <input type="file" id="albumArt" name="albumArt" accept="image/*"><br>
         
-        <label for="songFile">Song File:</label><br>
-        <input type="file" id="songFile" name="songFile" accept="audio/*"><br>
+        <label for="embedCode">Embed Code:</label><br>
+        <textarea id="embedCode" name="embedCode" rows="4" cols="50"></textarea><br>
         
-        <!-- Repeat the above pattern for other fields -->
-
         <input type="submit" value="Generate XML and HTML">
     </form>
 
@@ -44,7 +42,7 @@
             let xml = "<song>";
             formData.forEach((value, key) => {
                 // Handle file separately
-                if (key === 'albumArt' || key === 'songFile') {
+                if (key === 'albumArt') {
                     xml += `<${key}>${value.name}</${key}>`;
                 } else {
                     xml += `<${key}>${value}</${key}>`;
@@ -69,24 +67,21 @@
 
             // Create HTML content
             let htmlContent = "<h2>Music Index</h2>";
-            htmlContent += "<ul>";
+            htmlContent += "<ul>"; // Start list
             formData.forEach((value, key) => {
-                htmlContent += `<li><strong>${key}:</strong> ${value}</li>`;
+                if (key !== 'embedCode') {
+                    htmlContent += `<li><strong>${key}:</strong> ${value}</li>`;
+                }
             });
-            htmlContent += "</ul>";
+            htmlContent += "</ul>"; // End list
 
             // Display HTML content
             document.getElementById("audioPlayer").innerHTML = htmlContent;
 
-            // Create audio player
-            const songFile = formData.get("songFile");
-            if (songFile) {
-                const audioPlayer = document.createElement("audio");
-                audioPlayer.controls = true;
-                const source = document.createElement("source");
-                source.src = URL.createObjectURL(songFile);
-                audioPlayer.appendChild(source);
-                document.getElementById("audioPlayer").appendChild(audioPlayer);
+            // Append embed code
+            const embedCode = formData.get("embedCode");
+            if (embedCode) {
+                htmlContent += embedCode;
             }
 
             // Generate HTML file
