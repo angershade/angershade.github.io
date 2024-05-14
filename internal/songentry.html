@@ -14,13 +14,42 @@
         <label for="album">Album:</label><br>
         <input type="text" id="album" name="album"><br>
         
+        <label for="releaseDate">Release Date:</label><br>
+        <input type="date" id="releaseDate" name="releaseDate"><br>
+        
         <label for="artist">Artist:</label><br>
         <input type="text" id="artist" name="artist"><br>
+
+        <label for="Album Artist">Album Artist:</label><br>
+        <input type="text" id="album artist" name="album artist"><br>
+
+         <label for="title">Composer:</label><br>
+        <input type="composer" id="Composer" name="composer"><br>
+
+         <label for="title">Producer:</label><br>
+        <input type="producer" id="producer" name="producer"><br>
+
+         <label for="albumArt">Album Art:</label><br>
+        <input type="file" id="albumArt" name="albumArt" accept="image/*"><br>
+        
+        <label for="title">UPC:</label><br>
+        <input type="UPC" id="UPC" name="UPC"><br>
+        
+         <label for="title">UPC:</label><br>
+        <input type="UPC" id="UPC" name="UPC"><br>
+
+         <label for="title">ISRC:</label><br>
+        <input type="ISRC" id="ISRC" name="ISRC"><br>
+
+        <label for="songFile">Song File:</label><br>
+        <input type="file" id="songFile" name="songFile" accept="audio/*"><br>
         
         <!-- Repeat the above pattern for other fields -->
 
         <input type="submit" value="Generate XML">
     </form>
+
+   <div id="audioPlayer"></div>
 
     <script>
         document.getElementById("musicForm").addEventListener("submit", function(event) {
@@ -32,25 +61,49 @@
             // Construct XML
             let xml = "<song>";
             formData.forEach((value, key) => {
-                xml += `<${key}>${value}</${key}>`;
+                // Handle file separately
+                if (key === 'albumArt' || key === 'songFile') {
+                    xml += `<${key}>${value.name}</${key}>`;
+                } else {
+                    xml += `<${key}>${value}</${key}>`;
+                }
             });
             xml += "</song>";
 
             // Convert XML to Blob
-            const blob = new Blob([xml], { type: "text/xml" });
+            const xmlBlob = new Blob([xml], { type: "text/xml" });
 
-            // Create download link
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "music_index.xml";
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            // Create download link for XML
+            const xmlUrl = URL.createObjectURL(xmlBlob);
+            const xmlLink = document.createElement("a");
+            xmlLink.href = xmlUrl;
+            xmlLink.download = "music_index.xml";
+            document.body.appendChild(xmlLink);
+            xmlLink.click();
+            document.body.removeChild(xmlLink);
 
-            // Revoke Object URL
-            URL.revokeObjectURL(url);
+            // Revoke Object URL for XML
+            URL.revokeObjectURL(xmlUrl);
+
+            // Create HTML content
+            let htmlContent = "<h2>Music Index</h2>";
+            htmlContent += "<ul>";
+            formData.forEach((value, key) => {
+                htmlContent += `<li><strong>${key}:</strong> ${value}</li>`;
+            });
+            htmlContent += "</ul>";
+
+            // Display HTML content
+            document.getElementById("audioPlayer").innerHTML = htmlContent;
+
+            // Create audio player
+            const songFile = formData.get("songFile");
+            if (songFile) {
+                const audioPlayer = document.createElement("audio");
+                audioPlayer.controls = true;
+                const source = document.createElement("source");
+                source.src = URL.createObjectURL(songFile);
+                audioPlayer.appendChild(source);
+                document.getElementById("audioPlayer").appendChild(audioPlayer);
+            }
         });
-    </script>
-</body>
-</html>
