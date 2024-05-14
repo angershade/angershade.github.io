@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Index Form</title>
+</head>
+<body>
+    <h1>Music Index Form</h1>
+    <form id="musicForm">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        
+        <label for="album">Album:</label><br>
+        <input type="text" id="album" name="album"><br>
+        
+        <label for="artist">Artist:</label><br>
+        <input type="text" id="artist" name="artist"><br>
+        
+        <!-- Repeat the above pattern for other fields -->
+
+        <input type="submit" value="Generate HTML">
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("musicForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get form data
+            const formData = new FormData(event.target);
+
+            // Construct HTML page
+            let html = "<h2>Music Index</h2>";
+            html += "<ul>";
+            formData.forEach((value, key) => {
+                html += `<li><strong>${key}:</strong> ${value}</li>`;
+            });
+            html += "</ul>";
+
+            // Display HTML page
+            document.getElementById("result").innerHTML = html;
+        });
+    </script>
+</body>
+</html>
