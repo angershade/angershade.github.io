@@ -1,0 +1,18 @@
+<song>
+    <title></title>
+    <album></album>
+    <artist></artist>
+    <album_artist></album_artist>
+    <composer></composer>
+    <production_company></production_company>
+    <release_date></release_date>
+    <isrc_code></isrc_code>
+    <producer></producer>
+    <engineer></engineer>
+    <mastering_engineer></mastering_engineer>
+    <duration></duration>
+    <album_art></album_art>
+    <apple_id></apple_id>
+    <spotify_uri></spotify_uri>
+    <stream_link></stream_link>
+</song>
