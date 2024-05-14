@@ -14,40 +14,23 @@
         <label for="album">Album:</label><br>
         <input type="text" id="album" name="album"><br>
         
-        <label for="releaseDate">Release Date:</label><br>
-        <input type="date" id="releaseDate" name="releaseDate"><br>
-        
         <label for="artist">Artist:</label><br>
         <input type="text" id="artist" name="artist"><br>
 
-        <label for="Album Artist">Album Artist:</label><br>
-        <input type="text" id="album artist" name="album artist"><br>
-
-         <label for="title">Composer:</label><br>
-        <input type="composer" id="Composer" name="composer"><br>
-
-         <label for="title">Producer:</label><br>
-        <input type="producer" id="producer" name="producer"><br>
-
-         <label for="albumArt">Album Art:</label><br>
+        <label for="releaseDate">Release Date:</label><br>
+        <input type="date" id="releaseDate" name="releaseDate"><br>
+        
+        <label for="albumArt">Album Art:</label><br>
         <input type="file" id="albumArt" name="albumArt" accept="image/*"><br>
         
-        <label for="title">UPC:</label><br>
-        <input type="UPC" id="UPC" name="UPC"><br>
-        
-         <label for="title">UPC:</label><br>
-        <input type="UPC" id="UPC" name="UPC"><br>
-
-         <label for="title">ISRC:</label><br>
-        <input type="ISRC" id="ISRC" name="ISRC"><br>
-
         <label for="songFile">Song File:</label><br>
         <input type="file" id="songFile" name="songFile" accept="audio/*"><br>
         
         <!-- Repeat the above pattern for other fields -->
 
-        <input type="submit" value="Generate XML">
+        <input type="submit" value="Generate XML and HTML">
     </form>
+
     <div id="audioPlayer"></div>
 
     <script>
@@ -105,6 +88,19 @@
                 audioPlayer.appendChild(source);
                 document.getElementById("audioPlayer").appendChild(audioPlayer);
             }
+
+            // Generate HTML file
+            const htmlBlob = new Blob([htmlContent], { type: "text/html" });
+            const htmlUrl = URL.createObjectURL(htmlBlob);
+            const htmlLink = document.createElement("a");
+            htmlLink.href = htmlUrl;
+            htmlLink.download = "music_index.html";
+            document.body.appendChild(htmlLink);
+            htmlLink.click();
+            document.body.removeChild(htmlLink);
+
+            // Revoke Object URL for HTML
+            URL.revokeObjectURL(htmlUrl);
         });
     </script>
 </body>
