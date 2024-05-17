@@ -93,15 +93,13 @@ body {
 }
 
 header, footer {
-    background-color: #f8f8f8;
     padding: 20px;
-    text-align: center;
 }
 
 nav a {
     margin: 0 10px;
     text-decoration: none;
-    color: #333;
+    color: #000;
 }
 
 main {
@@ -109,7 +107,7 @@ main {
 }
 
 .track, .album, .playlist {
-    border: 1px solid #ddd;
+    border: 0px solid #000;
     padding: 10px;
     margin: 10px 0;
 }
