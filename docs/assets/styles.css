@@ -42,7 +42,7 @@ body {
     max-height: 100%;
 }
     /* CSS to remove bullets */
-        ul.no-bullets {
+        ul {
             list-style-type: none; /* Remove bullets */
             padding: 0; /* Remove padding */
             margin: 0; /* Remove margin */
