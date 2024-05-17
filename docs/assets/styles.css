@@ -52,13 +52,13 @@ body {
             line-height: normal;
         }
         .increased-spacing {
-            line-height: 2;
+            line-height: 1;
         }
         .fixed-spacing {
-            line-height: 30px;
+            line-height: 20px;
         }
         .percentage-spacing {
-            line-height: 150%;
+            line-height: 100%;
         }
 
 /* Styles for mobile */
