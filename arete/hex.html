@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track 56</title>
+</head>
+<body>
+    <h1 id="hex"></h1>
+    <p><strong>Artist:</strong> <span id="artist"></span></p>
+    <p><strong>Album:</strong> <span id="album"></span></p>
+    <p><strong>Year:</strong> <span id="year"></span></p>
+    <p><strong>Genre:</strong> <span id="genre"></span></p>
+    <p><strong>Description:</strong> <span id="description"></span></p>
+
+    <script>
+        fetch('/docs/tracks.xml')
+            .then(response => response.text())
+            .then(xmlString => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlString, 'application/xml');
+                const track = xmlDoc.querySelector('track[id="hex"]');
+
+                if (track) {
+                    document.getElementById('title').textContent = track.querySelector('title').textContent;
+                    document.getElementById('artist').textContent = track.querySelector('artist').textContent;
+                    document.getElementById('album').textContent = track.querySelector('album').textContent;
+                    document.getElementById('year').textContent = track.querySelector('year').textContent;
+                    document.getElementById('genre').textContent = track.querySelector('genre').textContent;
+                    document.getElementById('description').textContent = track.querySelector('description').textContent;
+                } else {
+                    document.body.innerHTML = '<p>Track not found.</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching or parsing XML:', error);
+                document.body.innerHTML = '<p>Error loading track data.</p>';
+            });
+    </script>
+</body>
+</html>
