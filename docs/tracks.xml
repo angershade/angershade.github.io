@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracks>
+    <track id=“Adept”>
+        <title>Adept</title>
+        <artist>Angershade</artist>
+        <album>Arete</album>
+        <year>2019</year>
+        <genre>Avant Garde</genre>
+        <description>Track description...</description>
+    </track>
+    <track id=“Hex>
+        <title>Hex</title>
+        <artist>Angershade</artist>
+        <album>Arete</album>
+        <year>2019</year>
+        <genre>Avant Garde</genre>
+        <description>Track description...</description>
+    </track>
+  <track id=“Envy”>
+        <title>Envy</title>
+        <artist>Angershade</artist>
+        <album>Arete</album>
+        <year>2019</year>
+        <genre>Avant Garde</genre>
+        <description>Track description...</description>
+    </track>
+  <track id=“Isolation”>
+        <title>Isolation</title>
+        <artist>Angershade</artist>
+        <album>Arete</album>
+        <year>2019</year>
+        <genre>Avant Garde</genre>
+        <description>Track description...</description>
+    </track>
+  <track id=“Envy (Reinterpreted)”>
+        <title>Envy (Reinterpreted)</title>
+        <artist>Angershade</artist>
+        <album>Arete</album>
+        <year>2019</year>
+        <genre>Avant Garde</genre>
+        <description>Track description...</description>
+    </track>
+</tracks>
