@@ -87,3 +87,34 @@ body {
 	font-size: 11px;
 	align-items: center;
 }
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+}
+
+header, footer {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+}
+
+.track, .album, .playlist {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.audio {
+    width: 100%;
+}
+
