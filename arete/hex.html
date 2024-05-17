@@ -15,7 +15,7 @@
 
 
       <script>
-        fetch('/arete/tracks.xml')
+        fetch('https://angershade.github.io/arete/tracks.xml')
             .then(response => response.text())
             .then(xmlString => {
                 const parser = new DOMParser();
