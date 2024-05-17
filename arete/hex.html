@@ -3,40 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hex</title>
+    <link rel="stylesheet" href="https://angershade.github.io/docs/assets/styles.css">
 </head>
 <body>
-    <h1 id="title"></h1>
-    <p><strong>Artist:</strong> <span id="artist"></span></p>
-    <p><strong>Album:</strong> <span id="album"></span></p>
-    <p><strong>Year:</strong> <span id="year"></span></p>
-    <p><strong>Genre:</strong> <span id="genre"></span></p>
-    <p><strong>Description:</strong> <span id="description"></span></p>
+<div id="header"></div>
+<div>
+    <h1>Hex</h1>
+<ul>    
+<li releaseDate>Released: December 5th, 2019</releaseDate>
+<li album>Album: <a href="https://angershade.github.io/areteep">Arete</a></h5></album>
+<li genre> Genre: Darkwave
+<br>
+<iframe
+<iframe src="https://play.wavekit.app/embed/audio/bIkxOt3Fjn?type=wave&border=false&theme=auto&hideCover=true&transparent=true&accent=%23000000" allowtransparency="true" style="border: none;" width="100%" height="300px" referrerpolicy="origin" title="Wavekit audio player"></iframe>
+    </div>   
+    <ul>
+    <li analysis><strong>Analysis:</strong> Hex is 3 minutes and 49 seconds long. <br>It's in the key of F-sharp major and the time signature is 4 beats per measure. <br>Loudness is -12.54 db and the tempo is around 149.90 bpm.
+<br><br>
+  <!-- Placeholder for the footer -->
+    <div id="footer"></div>
 
-
-      <script>
-        fetch('https://angershade.github.io/arete/tracks.xml')
+    <!-- Script to load the footer -->
+    <script>
+        fetch('https://angershade.com/footer.html')
             .then(response => response.text())
-            .then(xmlString => {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(xmlString, 'application/xml');
-                const track = xmlDoc.querySelector('track[name="hex"]');
-
-                if (track) {
-                    document.getElementById('title').textContent = track.querySelector('title').textContent;
-                    document.getElementById('artist').textContent = track.querySelector('artist').textContent;
-                    document.getElementById('album').textContent = track.querySelector('album').textContent;
-                    document.getElementById('year').textContent = track.querySelector('year').textContent;
-                    document.getElementById('genre').textContent = track.querySelector('genre').textContent;
-                    document.getElementById('description').textContent = track.querySelector('description').textContent;
-                } else {
-                    document.body.innerHTML = '<p>Track not found.</p>';
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching or parsing XML:', error);
-                document.body.innerHTML = '<p>Error loading track data.</p>';
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
             });
     </script>
-</body>
-</html>
