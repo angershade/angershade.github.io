@@ -43,6 +43,10 @@ body {
 header, footer {
     padding: 20px;
 }
+#logo {
+    max-height: 50px; /* Adjust the max height to fit your design */
+    margin-right: 20px;
+}
 
 nav a {
     margin: 0 10px;
