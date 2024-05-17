@@ -14,7 +14,7 @@
     <p><strong>Description:</strong> <span id="description"></span></p>
 
     <script>
-        fetch('/docs/tracks.xml')
+        fetch('tracks.xml')
             .then(response => response.text())
             .then(xmlString => {
                 const parser = new DOMParser();
