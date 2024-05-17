@@ -11,5 +11,41 @@
 	<p>A music project with an exploration into sound design, deviating from the conventional methodologies of contemporary musical composition and production.</p>
 </main>
 <div id="footer"></div>
+
+	  <!-- Scripts to load the blocks -->
+    <script>
+        // Function to fetch and include HTML content
+        function includeHTML(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+
+        // Include header and footer
+        includeHTML('header', 'header.html');
+        includeHTML('footer', 'footer.html');
+
+        // Include album and playlist with tracks
+        includeHTML('album-container', 'album.html');
+        includeHTML('playlist-container', 'playlist.html');
+
+        // Once the album and playlist are loaded, include tracks
+        window.addEventListener('load', () => {
+            const albumTracksContainer = document.querySelector('.album .tracks');
+            const playlistTracksContainer = document.querySelector('.playlist .tracks');
+
+            fetch('track.html')
+                .then(response => response.text())
+                .then(trackHTML => {
+                    // Add multiple tracks to album and playlist
+                    albumTracksContainer.innerHTML = trackHTML.repeat(3); // Add 3 tracks to album
+                    playlistTracksContainer.innerHTML = trackHTML.repeat(5); // Add 5 tracks to playlist
+                });
+        });
+    </script>
+</body>
+</html>
 </body>
 </html>
