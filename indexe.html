@@ -27,6 +27,27 @@
     <script>
         document.getElementById('header').innerHTML = fetch('header.html').then(response => response.text());
         document.getElementById('footer').innerHTML = fetch('footer.html').then(response => response.text());
+
+        function toggleMenu() {
+            var menu = document.getElementById('dropdown-content');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName('dropdown-content');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
     </script>
 </body>
 </html>
