@@ -43,7 +43,7 @@ p, li {
 }
 
 .dropdown {
-    position: absolute;
+    position: relative;
     display: inline-block;
 }
 
