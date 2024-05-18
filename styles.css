@@ -18,8 +18,8 @@ body {
 
 /* Override any system or user-defined styles */
 body, html, header, footer, main, #menuContent {
-    background-color: #AAAAAA; /* Ensure background is always the same */
-    color: #000000; /* Ensure text color is always the same */
+    background-color: #0000000; /* Ensure background is always the same */
+    color: #AAAAAA; /* Ensure text color is always the same */
 }
 
 a {
