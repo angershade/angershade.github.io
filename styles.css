@@ -51,7 +51,7 @@ p, li {
     background-color: #bbb;
     color: #660000;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 13px;
     border: none;
     cursor: pointer;
 }
@@ -61,7 +61,7 @@ p, li {
     position: absolute;
     right: 0;
     background-color: #bbb;
-    min-width: 200px;
+    min-width: 400px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
