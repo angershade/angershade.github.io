@@ -21,8 +21,8 @@ body {
 			flex-grow: 1;
 			display: flex;
 			flex-direction: column;
-			align-items: left;
-			justify-content: left;
+			align-items: right;
+			justify-content: right;
 		}
 		.button {
 			background-color: #4CAF50;
@@ -104,7 +104,7 @@ body {
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: #666;
+            background-color: #AAA;
             color: Black;
         }
         .logo {
@@ -112,11 +112,11 @@ body {
             font-weight: bold;
         }
         .dropdown {
-            position: relative;
+            position: absolute;
             display: inline-block;
         }
         .dropbtn {
-            background-color: #666;
+            background-color: #AAA;
             color: Black;
             padding: 10px 20px;
             font-size: 16px;
@@ -138,9 +138,9 @@ body {
             text-decoration: none;
             display: block;
         }
-        .dropdown-content a:hover {background-color: #666;}
+        .dropdown-content a:hover {background-color: #AAA;}
         .dropdown:hover .dropdown-content {display: block;}
-        .dropdown:hover .dropbtn {background-color: #666;}
+        .dropdown:hover .dropbtn {background-color: #AAA;}
 
 .content {
  text-align: left;
