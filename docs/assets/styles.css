@@ -25,8 +25,8 @@ body {
 			justify-content: right;
 		}
 		.button {
-			background-color: #000000;
-			color: #bbb;
+			background-color: #bbbbbb;
+			color: #000;
 			padding: 10px 20px;
 			border: none;
 			border-radius: 5px;
