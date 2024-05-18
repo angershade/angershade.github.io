@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
+    <title>Menu</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         @font-face {
@@ -19,10 +19,10 @@
         <div class="logo">
             <img src="https://angershade.github.io/docs/assets/fulllogoB.png" alt="Logo">
         </div>
-        <button class="hamburger" id="hamburger">&#9776;</button>
+        <button class="hamburger" id="closeMenu">&times; Close</button>
     </header>
 
-    <nav id="flyoutMenu">
+    <nav id="menuContent">
         <b>ABOUT</b>
         <a href="index.html">bio</a>
         <a href="albums.html">gear</a>
@@ -38,33 +38,10 @@
         <a href="https://facebook.com/brian.e.yegge">facebook</a>
     </nav>
 
-    <main>
-        <h1>Main Content Area</h1>
-        <p>This is where your main content goes.</p>
-    </main>
-    
-    <footer>
-        <p>© 2024 Your Website Name. All rights reserved.</p>
-    </footer>
-
     <script>
-        document.getElementById('hamburger').addEventListener('click', function() {
-            var menu = document.getElementById('flyoutMenu');
-            if (menu.style.transform === 'translateX(0%)') {
-                menu.style.transform = 'translateX(100%)';
-            } else {
-                menu.style.transform = 'translateX(0%)';
-            }
+        document.getElementById('closeMenu').addEventListener('click', function() {
+            window.history.back();
         });
-
-        window.onclick = function(event) {
-            if (!event.target.matches('#hamburger')) {
-                var menu = document.getElementById('flyoutMenu');
-                if (menu.style.transform === 'translateX(0%)') {
-                    menu.style.transform = 'translateX(100%)';
-                }
-            }
-        }
     </script>
 </body>
 </html>
