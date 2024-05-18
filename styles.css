@@ -1,6 +1,6 @@
 /* Universal Style Sheet */
 
-body {
+body, html {
     font-family: 'Neue Helvetica', Helvetica, Arial, sans-serif;
     color: #000000;
     background-color: #bbbbbb;
@@ -10,18 +10,18 @@ body {
 }
 
 /* Force specific styles regardless of user's system mode */
-body, header, footer, main, #menuContent {
-    background-color: #bbbbbb !important; /* Ensures background is always the same */
-    color: #000000 !important; /* Ensures text color is always the same */
+body, html, header, footer, main, #menuContent {
+    background-color: #bbbbbb; /* Ensures background is always the same */
+    color: #000000; /* Ensures text color is always the same */
 }
 
 a {
-    color: #660000 !important;
+    color: #660000;
     text-decoration: none;
 }
 
 a:hover {
-    color: #660000 !important;
+    color: #660000;
     text-decoration: none;
 }
 
@@ -32,6 +32,7 @@ header, footer {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    background-color: #bbbbbb; /* Header and Footer Background */
 }
 
 header .logo img {
@@ -58,17 +59,18 @@ p, li {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    background-color: #bbbbbb; /* Menu Background */
 }
 
 #menuContent a, #menuContent b {
-    color: white !important;
+    color: white;
     padding: 12px 0;
     text-decoration: none;
     display: block;
 }
 
 #menuContent a:hover {
-    background-color: #555 !important;
+    background-color: #555;
 }
 
 main {
