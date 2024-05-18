@@ -12,7 +12,7 @@ body, html {
 /* Force specific styles regardless of user's system mode */
 body, html, header, footer, main, #menuContent {
     background-color: #222222; /* Ensures background is always the same */
-    color: #FFFFFF; /* Ensures text color is always the same */
+    color: #660000; /* Ensures text color is always the same */
 }
 
 a {
