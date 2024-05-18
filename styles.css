@@ -81,6 +81,46 @@ p, li {
 #menuContent a:hover {
     background-color: #555;
 }
+.accordion {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.accordion-button {
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 15px;
+    text-align: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-button:hover {
+    background-color: #ddd;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #f9f9f9;
+    padding: 0 15px;
+}
+
+.accordion-content p {
+    margin: 15px 0;
+}
 
 main {
     flex: 1; /* Makes the main content area grow to fill available space */
