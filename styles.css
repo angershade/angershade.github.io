@@ -72,7 +72,7 @@ p, li {
 }
 
 #menuContent a, #menuContent b {
-    color: Black;
+    color: #AAA;
     padding: 12px 0;
     text-decoration: none;
     display: block;
