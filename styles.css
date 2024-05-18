@@ -18,8 +18,8 @@ body {
 
 /* Override any system or user-defined styles */
 body, html, header, footer, main, #menuContent {
-    background-color: #AAAAAA; /* Ensure background is always the same */
-    color: #000000; /* Ensure text color is always the same */
+    background-color: #000; /* Ensure background is always the same */
+    color: #AAA; /* Ensure text color is always the same */
 }
 
 a {
@@ -83,7 +83,7 @@ p, li {
 }
 .accordion {
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     margin: 0 auto;
 }
 
