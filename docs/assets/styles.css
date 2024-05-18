@@ -48,8 +48,8 @@ p, li {
 }
 
 .dropbtn {
-    background-color: #333;
-    color: white;
+    background-color: #bbb;
+    color: #660000;
     padding: 10px 20px;
     font-size: 16px;
     border: none;
@@ -60,14 +60,14 @@ p, li {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #444;
+    background-color: #bbb;
     min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
 .dropdown-content a, .dropdown-content b {
-    color: white;
+    color: #660000;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
