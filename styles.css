@@ -113,7 +113,7 @@ p, li {
 .accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s ease;
     background-color: #222222;
     padding: 0 15px;
 }
