@@ -6,10 +6,11 @@ body {
     background-color: #bbbbbb;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Force specific styles regardless of user's system mode */
-body, header, footer, main, .dropdown-content {
+body, header, footer, main, #flyoutMenu {
     background-color: #bbbbbb !important; /* Ensures background is always the same */
     color: #000000 !important; /* Ensures text color is always the same */
 }
@@ -30,10 +31,19 @@ header, footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 header .logo img {
     height: 50px; /* Adjust the height as needed */
+}
+
+header .hamburger {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -44,20 +54,37 @@ p, li {
     font-family: 'Neue Helvetica', Helvetica, Arial, sans-serif;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+#flyoutMenu {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background-color: #444 !important;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    transition: right 0.3s;
+    z-index: 1000; /* Ensures the menu is above all content */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
 
-.dropbtn {
-    background-color: #333 !important;
+#flyoutMenu a, #flyoutMenu b {
     color: white !important;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+    padding: 12px 0;
+    text-decoration: none;
+    display: block;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
+#flyoutMenu a:hover {
+    background-color: #555 !important;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 20px;
+}
