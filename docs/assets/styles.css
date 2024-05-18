@@ -28,6 +28,10 @@ header, footer {
     align-items: center;
 }
 
+header .logo img {
+    height: 50px; /* Adjust the height as needed */
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Neue Helvetica', Helvetica, Arial, sans-serif;
     color: #000000;
@@ -36,11 +40,6 @@ h1, h2, h3, h4, h5, h6 {
 p, li {
     font-family: 'Neue Helvetica', Helvetica, Arial, sans-serif;
     color: #000000;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
 }
 
 .dropdown {
@@ -75,14 +74,6 @@ p, li {
 }
 
 .dropdown-content a:hover {
-    background-color: #555;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
     background-color: #555;
 }
 
