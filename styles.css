@@ -39,7 +39,7 @@ header, footer {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    background-color: #AAAAAA; /* Header and Footer Background */
+    background-color: #AAA; /* Header and Footer Background */
 }
 
 header .logo img {
@@ -68,11 +68,11 @@ p, li {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: #AAAAAA; /* Menu Background */
+    background-color: #AAA; /* Menu Background */
 }
 
 #menuContent a, #menuContent b {
-    color: white;
+    color: Black;
     padding: 12px 0;
     text-decoration: none;
     display: block;
