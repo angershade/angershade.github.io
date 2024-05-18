@@ -63,7 +63,7 @@ p, li {
 }
 
 #menuContent a, #menuContent b {
-    color: white;
+    color: black;
     padding: 12px 0;
     text-decoration: none;
     display: block;
