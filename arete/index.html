@@ -1,26 +1,71 @@
 <html>
-<head
-<title>Angershade</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="docs/assets/styles.css">
+<head>
+	<meta charset="utf-8">
+	<title>Angershade</title>
+	<link rel="stylesheet" href="docs/assets/styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+   <style>
+        body {
+            background: url('/assets/frontcover.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            backdrop-filter: blur(5px); /* Slightly blurred */
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
-<right><img src="docs/assets/fulllogob.png"
+<div id="header"></div>
+<main>
+	<p></p>
+</main>
+<div id="footer"></div>
 
-<div align="left">
-<h2>SONG TITLE</h2><br>
+	  <!-- Scripts to load the blocks -->
+    <script>
+        // Function to fetch and include HTML content
+        function includeHTML(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
 
-<b>VERSION:<b/> <br>
-<b>RELEASED:</b> <br>
-<b>ALBUM(s)</b> <br>
-<b>STREAM</b> <a hre="*"Apple Music<a/>  <a href="*">Spotify</a>  <a href="*">Youtube Music</a> <br>
-<b>Purchase:</b> <a href="*">Bandcamp</a>  <a href="*">iTunes</a> <br>
-<iframe src="https://play.wavekit.app/embed/playlist/A8oiQ5kMN0?type=wave&border=false&theme=auto&hideCover=true&transparent=true&lazy=true&accent=%23000000" allowtransparency="true" style="border: none;" width="100%" height="371px" referrerpolicy="origin" title="Wavekit audio player" loading="lazy"></iframe>
-<br>
-<footer>
-<a
-</footer
+        // Include header and footer
+        includeHTML('header', 'header.html');
+        includeHTML('footer', 'footer.html');
+
+        // Include album and playlist with tracks
+        includeHTML('album-container', 'album.html');
+        includeHTML('playlist-container', 'playlist.html');
+
+        // Once the album and playlist are loaded, include tracks
+        window.addEventListener('load', () => {
+            const albumTracksContainer = document.querySelector('.album .tracks');
+            const playlistTracksContainer = document.querySelector('.playlist .tracks');
+
+            fetch('track.html')
+                .then(response => response.text())
+                .then(trackHTML => {
+                    // Add multiple tracks to album and playlist
+                    albumTracksContainer.innerHTML = trackHTML.repeat(3); // Add 3 tracks to album
+                    playlistTracksContainer.innerHTML = trackHTML.repeat(5); // Add 5 tracks to playlist
+                });
+        });
+    </script>
 </body>
-</head>
+</html>
+</body>
+</html>
+
