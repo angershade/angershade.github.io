@@ -1,152 +1,87 @@
+/* Universal Style Sheet */
+
 body {
-  margin: 0;
-  padding: 33px;
-  font-family: 'PT Sans', sans-serif;
-  background-color: #bbbbbb; /* Standard grey background */
-  color: #000000; /* Black text color */
-	font-size: 1.2em;
-	margin: 10;
-	padding: 20;
-	display: flex;
-	flex-direction: column;
-	align-items: left;
-	justify-content: left;
-	min-height: 100vh;
+    font-family: 'PT Sans', sans-serif;
+    color: #000000;
+    background-color: #bbbbbb;
+    margin: 0;
+    padding: 0;
 }
 
-.container {
-			max-width: 600px;
-			margin: 0 auto;
-			padding: 20px;
-			flex-grow: 1;
-			display: flex;
-			flex-direction: column;
-			align-items: right;
-			justify-content: right;
-		}
-		.button {
-			background-color: #bbbbbb;
-			color: #000;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-		}
-		img {
-			max-width: 100%;
-			height: auto;
-		}
-.constrained-img {
-    max-width: 100%;
-    max-height: 100%;
-}
-header, footer {
-    padding: 20px;
-}
-#logo {
-    max-height: 50px; /* Adjust the max height to fit your design */
-    margin-right: 20px;
-}
-
-nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #000;
-}
-
-main {
-}
-
-.track, .album, .playlist {
-}
-.audio {
- width: 100%;
-}
-    /* CSS to remove bullets */
-        ul {
-            list-style-type: none; /* Remove bullets */
-            padding: 20; /* Remove padding */
-            margin: 5; /* Remove margin */
-        }
 a {
-  color: #992222; /* Blood Red link color */
-}
-/* Default styles for desktop */
-body {
-    font-size: 14px;
-        }
-        .default-spacing {
-            line-height: normal;
-        }
-        .increased-spacing {
-            line-height: 1;
-        }
-        .fixed-spacing {
-            line-height: 20px;
-        }
-        .percentage-spacing {
-            line-height: 100%;
-        }
-
-/* Styles for mobile */
-@media only screen and (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
+    color: #660000;
+    text-decoration: none;
 }
 
-.is-mobile {
-    /* Placeholder rule */
+a:hover {
+    color: #660000;
+    text-decoration: none;
+}
+
+header, footer {
+    font-family: 'PT Sans', sans-serif;
+    color: #000000;
+    background-color: #bbbbbb;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'PT Sans', sans-serif;
+    color: #000000;
+}
+
+p, li {
+    font-family: 'PT Sans', sans-serif;
+    color: #000000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #444;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a, .dropdown-content b {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
     display: block;
 }
- header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #bbb;
-            color: Black;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .dropdown {
-            position: absolute;
-            display: inline-block;
-        }
-        .dropbtn {
-            background-color: #bbb;
-            color: Black;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: #bbb;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        .dropdown-content a, .dropdown-content b {
-            color: Black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown-content a:hover {background-color: #bbb;}
-        .dropdown:hover .dropdown-content {display: block;}
-        .dropdown:hover .dropbtn {background-color: #bbb;}
 
-.content {
- text-align: left;
-  padding: 33px;
+.dropdown-content a:hover {
+    background-color: #555;
 }
-.footer {
-	font-size: 11px;
-	align-items: center;
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #555;
 }
