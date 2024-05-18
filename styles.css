@@ -43,13 +43,13 @@ p, li {
 }
 
 .dropdown {
-    position: relative;
+    position: absolute;
     display: inline-block;
 }
 
 .dropbtn {
-    background-color: #bbb;
-    color: #660000;
+    background-color: #bbbbbb;
+    color: #000000;
     padding: 10px 20px;
     font-size: 13px;
     border: none;
@@ -60,7 +60,7 @@ p, li {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #bbb;
+    background-color: #bbbbbb;
     min-width: 400px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -74,7 +74,7 @@ p, li {
 }
 
 .dropdown-content a:hover {
-    background-color: #BBB;
+    background-color: #bbbbbb;
 }
 
 main {
