@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>Your Page Title</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         @font-face {
@@ -19,28 +19,21 @@
         <div class="logo">
             <img src="https://angershade.github.io/docs/assets/fulllogoB.png" alt="Logo">
         </div>
-        <button class="hamburger" id="closeMenu">&times; Close</button>
+        <button class="hamburger" id="hamburger">&#9776; Menu</button>
     </header>
 
-    <nav id="menuContent">
-        <b>ABOUT</b>
-        <a href="index.html">bio</a>
-        <a href="albums.html">gear</a>
-        <a href="https://hyperfollow.com/brianyegge">Links</a>
-        <b>MUSIC</b>
-        <a href="albums.html">The Albums</a>
-        <a href="tracks.html">The Tracks</a>
-        <a href="/vault">The Vault</a>
-        <b>CONNECT</b>
-        <a href="https://x.com/x_byegge">𝕏</a>
-        <a href="https://youtube.com/@angershade">Artist Channel</a>
-        <a href="https://instagram.com/angershade">Instagram</a>
-        <a href="https://facebook.com/brian.e.yegge">facebook</a>
-    </nav>
+    <main>
+        <h1>Main Content Area</h1>
+        <p>This is where your main content goes.</p>
+    </main>
+    
+    <footer>
+        <p>© 2024 Your Website Name. All rights reserved.</p>
+    </footer>
 
     <script>
-        document.getElementById('closeMenu').addEventListener('click', function() {
-            window.history.back();
+        document.getElementById('hamburger').addEventListener('click', function() {
+            window.location.href = 'menu.html';
         });
     </script>
 </body>
