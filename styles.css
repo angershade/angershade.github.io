@@ -11,8 +11,8 @@ body, html {
 
 /* Force specific styles regardless of user's system mode */
 body, html, header, footer, main, #menuContent {
-    background-color: #bbbbbb; /* Ensures background is always the same */
-    color: #000000; /* Ensures text color is always the same */
+    background-color: #222222; /* Ensures background is always the same */
+    color: #FFFFFF; /* Ensures text color is always the same */
 }
 
 a {
