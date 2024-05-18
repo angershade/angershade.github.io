@@ -10,7 +10,7 @@ body {
 }
 
 /* Force specific styles regardless of user's system mode */
-body, header, footer, main, #flyoutMenu {
+body, header, footer, main, #menuContent {
     background-color: #bbbbbb !important; /* Ensures background is always the same */
     color: #000000 !important; /* Ensures text color is always the same */
 }
@@ -39,7 +39,7 @@ header .logo img {
 }
 
 header .hamburger {
-    font-size: 40px;
+    font-size: 24px;
     background: none;
     border: none;
     cursor: pointer;
@@ -54,29 +54,20 @@ p, li {
     font-family: 'Neue Helvetica', Helvetica, Arial, sans-serif;
 }
 
-#flyoutMenu {
-    position: fixed;
-    top: 0;
-    right: 1;
-    width: 100%;
-    height: 100%;
-    background-color: #444 !important;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000; /* Ensures the menu is above all content */
+#menuContent {
     display: flex;
     flex-direction: column;
     padding: 20px;
 }
 
-#flyoutMenu a, #flyoutMenu b {
+#menuContent a, #menuContent b {
     color: white !important;
     padding: 12px 0;
     text-decoration: none;
     display: block;
 }
 
-#flyoutMenu a:hover {
+#menuContent a:hover {
     background-color: #555 !important;
 }
 
