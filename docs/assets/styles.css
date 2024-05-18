@@ -65,8 +65,8 @@ main {
     /* CSS to remove bullets */
         ul {
             list-style-type: none; /* Remove bullets */
-            padding: 0; /* Remove padding */
-            margin: 0; /* Remove margin */
+            padding: 20; /* Remove padding */
+            margin: 5; /* Remove margin */
         }
 a {
   color: #992222; /* Blood Red link color */
