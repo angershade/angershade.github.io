@@ -1,26 +1,103 @@
-<header>
-    <table border="0" padding="20px">
-        <tr>
-            <td><img src="docs/assets/fulllogoB.png" alt="Angershade Logo Black" id="logo"></td>
-            <td>
-    <nav>
-        <b> | ABOUT</b>
-        <a href="index.html">bio</a>
-        <a href="albums.html">gear</a>
-        <a href="https://hyperfollow.com/brianyegge">Links</a>
-        <b> | MUSIC</b>
-        <a href="albums.html">The Albums</a>
-        <a href="tracks.html">The Tracks</a>
-        <a href="/vault">The Vault</a>
-        <b> | CONNECT</b>
-        <a href="https://x.com/x_byegge">𝕏</a>
-        <a href="https://youtube.com/@angershade">Artist Channel</a>
-        <a href="https://instagram.com/angershade">Instagram</a>
-        <a href="https://facebook.com/brian.e.yegge">facebook</a>
-    </nav>
-            </td>
-        </tr>
-    </table>
-  </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header with Logo and Hamburger Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+        nav {
+            display: flex;
+            flex-direction: column;
+            background-color: #444;
+            padding: 10px;
+            display: none; /* Hidden by default */
+        }
+        nav a, nav b {
+            color: white;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+            nav {
+                display: flex;
+                flex-direction: row;
+                background-color: transparent;
+                padding: 0;
+            }
+            nav a, nav b {
+                margin: 0 10px;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">LOGO</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav id="menu">
+            <b> | ABOUT</b>
+            <a href="index.html">bio</a>
+            <a href="albums.html">gear</a>
+            <a href="https://hyperfollow.com/brianyegge">Links</a>
+            <b> | MUSIC</b>
+            <a href="albums.html">The Albums</a>
+            <a href="tracks.html">The Tracks</a>
+            <a href="/vault">The Vault</a>
+            <b> | CONNECT</b>
+            <a href="https://x.com/x_byegge">𝕏</a>
+            <a href="https://youtube.com/@angershade">Artist Channel</a>
+            <a href="https://instagram.com/angershade">Instagram</a>
+            <a href="https://facebook.com/brian.e.yegge">facebook</a>
+        </nav>
+    </header>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
+        }
+    </script>
 </body>
 </html>
