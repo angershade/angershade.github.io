@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Your Page Title</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         @font-face {
@@ -15,36 +15,18 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">LOGO</div>
-        <div class="dropdown">
-            <button class="dropbtn">☰ Menu</button>
-            <div class="dropdown-content">
-                <b>ABOUT</b>
-                <a href="index.html">bio</a>
-                <a href="albums.html">gear</a>
-                <a href="https://hyperfollow.com/brianyegge">Links</a>
-                <b>MUSIC</b>
-                <a href="albums.html">The Albums</a>
-                <a href="tracks.html">The Tracks</a>
-                <a href="/vault">The Vault</a>
-                <b>CONNECT</b>
-                <a href="https://x.com/x_byegge">𝕏</a>
-                <a href="https://youtube.com/@angershade">Artist Channel</a>
-                <a href="https://instagram.com/angershade">Instagram</a>
-                <a href="https://facebook.com/brian.e.yegge">facebook</a>
-            </div>
-        </div>
-    </header>
+    <div id="header"></div>
+    
     <main>
         <h1>Main Content Area</h1>
         <p>This is where your main content goes.</p>
     </main>
-    <footer>
-	    <center>
-        <p>© 2024 Angershade Yegge All rights reserved <br>
-	<a href="https://angershade.github.io/tos">Terms & Conditions</a></p>
-	</center>
-    </footer>
+    
+    <div id="footer"></div>
+
+    <script>
+        document.getElementById('header').innerHTML = fetch('header.html').then(response => response.text());
+        document.getElementById('footer').innerHTML = fetch('footer.html').then(response => response.text());
+    </script>
 </body>
 </html>
