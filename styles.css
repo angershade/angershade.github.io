@@ -43,7 +43,7 @@ p, li {
 }
 
 .dropdown {
-    position: absolute;
+    position: relative;
     display: inline-block;
 }
 
@@ -58,7 +58,7 @@ p, li {
 
 .dropdown-content {
     display: none;
-    position: absolute;
+    position: relative;
     right: 0;
     background-color: #bbbbbb;
     min-width: 400px;
