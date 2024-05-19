@@ -82,7 +82,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #AAAAAA; /* Footer Background */
+    background-color: #000000; /* Footer Background */
     z-index: 1000; /* Ensures the footer stays above other content */
     color: #000000; /* Ensure footer text color */
 }
