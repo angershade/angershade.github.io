@@ -12,8 +12,10 @@ body {
 
 /* Override any system or user-defined styles */
 body, html, header, footer, main, #menuContent {
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">\
     background-color: #000; /* Ensure background is always the same */
     color: #AAA; /* Ensure text color is always the same */
+    
 }
 
 a {
@@ -48,12 +50,12 @@ header .hamburger {
 
 h1, h2, h3, h4, h5, h6 {
     color: #000000; /* Ensure heading text color */
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    
 }
 
 p, li {
-    // <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 400 to 700
-#menuContent {
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -61,6 +63,7 @@ p, li {
 }
 
 #menuContent a, #menuContent b {
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
     color: #AAAAAA;
     padding: 12px 0;
     text-decoration: none;
