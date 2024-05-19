@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spreadsheet Interface</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@12.1.0/dist/handsontable.min.css">
+</head>
+<body>
+    <div id="spreadsheet"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@12.1.0/dist/handsontable.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.getElementById('spreadsheet');
+            const hot = new Handsontable(container, {
+                data: [
+                    ['', 'Tesla', 'Nissan', 'Toyota', 'Honda'],
+                    ['2017', 10, 11, 12, 13],
+                    ['2018', 20, 11, 14, 13],
+                    ['2019', 30, 15, 12, 13]
+                ],
+                colHeaders: true,
+                rowHeaders: true,
+                filters: true,
+                dropdownMenu: true,
+                contextMenu: true,
+                licenseKey: 'non-commercial-and-evaluation'
+            });
+        });
+    </script>
+</body>
+</html>
