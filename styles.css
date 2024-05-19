@@ -1,28 +1,14 @@
 /* Universal Style Sheet */
 
 /* Ensure the entire document has the specified styles regardless of system mode */
-body, html {
-    // <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 400 to 700
-
-.caveat-<uniquifier> {
-  font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
-    color: #000000; /* Text color */
+body {
     background-color: #AAAAAA; /* Background color */
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Prevent horizontal scrolling */
     height: 100%; /* Ensure body and html take full height */
-}
-
-body {
     display: flex;
     flex-direction: column;
-}
 
 /* Override any system or user-defined styles */
 body, html, header, footer, main, #menuContent {
@@ -39,17 +25,7 @@ a:hover {
     color: #660000; /* Hover link color */
     text-decoration: none;
 }
-
 header, footer {
-// <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 400 to 700
-
-.caveat-<uniquifier> {
-  font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -71,33 +47,17 @@ header .hamburger {
 }
 
 h1, h2, h3, h4, h5, h6 {
- // <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 400 to 700
-.caveat-<uniquifier> {
-  font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
     color: #000000; /* Ensure heading text color */
 }
 
 p, li {
     // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 400 to 700
-
-.caveat-<uniquifier> {
-  font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-    color: #000000; /* Ensure paragraph and list text color */
-}
-
 #menuContent {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: #AAAAA; /* Menu Background */
+    background-color: #AAAAAA; /* Menu Background */
 }
 
 #menuContent a, #menuContent b {
