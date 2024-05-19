@@ -39,7 +39,7 @@ header, footer {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    background-color: #AAA; /* Header and Footer Background */
+    background-color: #AAAAAA; /* Header and Footer Background */
 }
 
 header .logo img {
@@ -68,18 +68,18 @@ p, li {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: #AAA; /* Menu Background */
+    background-color: #AAAAA; /* Menu Background */
 }
 
 #menuContent a, #menuContent b {
-    color: #AAA;
+    color: #AAAAAA;
     padding: 12px 0;
     text-decoration: none;
     display: block;
 }
 
 #menuContent a:hover {
-    background-color: #AAA;
+    background-color: #AAAAAA;
 }
 .accordion {
     width: 100%;
@@ -88,7 +88,7 @@ p, li {
 }
 
 .accordion-item {
-    border: 1px solid #AAA;
+    border: 1px solid #AAAAAA;
     border-radius: 4px;
     margin-bottom: 10px;
     overflow: hidden;
@@ -96,7 +96,7 @@ p, li {
 
 .accordion-button {
     width: 100%;
-    background-color: #AAA;
+    background-color: #AAAAAA;
     padding: 15px;
     text-align: left;
     border: none;
@@ -107,14 +107,14 @@ p, li {
 }
 
 .accordion-button:hover {
-    background-color: #AAA;
+    background-color: #AAAAAA;
 }
 
 .accordion-content {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease;
-    background-color: #AAA;
+    background-color: #AAAAAA;
     padding: 0 15px;
 }
 
