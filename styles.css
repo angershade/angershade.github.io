@@ -2,7 +2,15 @@
 
 /* Ensure the entire document has the specified styles regardless of system mode */
 body, html {
-    font-family: 'Neue Helvetica', Helvetica, Arial, sans-serif;
+    // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 700
+
+.caveat-<uniquifier> {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
     color: #000000; /* Text color */
     background-color: #AAAAAA; /* Background color */
     margin: 0;
@@ -33,7 +41,15 @@ a:hover {
 }
 
 header, footer {
-    font-family: 'Neue Helvetica', Helvetica, Arial, sans-serif;
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 700
+
+.caveat-<uniquifier> {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
