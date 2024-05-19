@@ -71,12 +71,25 @@ header .hamburger {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Neue Helvetica', Helvetica, Arial, sans-serif;
+ // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 700
+.caveat-<uniquifier> {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
     color: #000000; /* Ensure heading text color */
 }
 
 p, li {
-    font-family: 'Neue Helvetica', Helvetica, Arial, sans-serif;
+    // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 700
+
+.caveat-<uniquifier> {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
     color: #000000; /* Ensure paragraph and list text color */
 }
 
@@ -97,47 +110,6 @@ p, li {
 #menuContent a:hover {
     background-color: #AAAAAA;
 }
-.accordion {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.accordion-item {
-    border: 1px solid #AAAAAA;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    overflow: hidden;
-}
-
-.accordion-button {
-    width: 100%;
-    background-color: #AAAAAA;
-    padding: 15px;
-    text-align: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.accordion-button:hover {
-    background-color: #AAAAAA;
-}
-
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    background-color: #AAAAAA;
-    padding: 0 15px;
-}
-
-.accordion-content p {
-    margin: 15px 0;
-}
-
 main {
     flex: 1; /* Makes the main content area grow to fill available space */
     padding: 20px;
