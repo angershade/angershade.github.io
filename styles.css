@@ -1,91 +1,54 @@
-/* Universal Style Sheet */
-
-/* Ensure the entire document has the specified styles regardless of system mode */
-body {
-    background-color: #AAAAAA; /* Background color */
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    height: 100%; /* Ensure body and html take full height */
-    display: flex;
-    flex-direction: column;
-
-/* Override any system or user-defined styles */
-body, html, header, footer, main, #menuContent {
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">\
-    background-color: #000; /* Ensure background is always the same */
-    color: #AAA; /* Ensure text color is always the same */
-    
+/* Global styles using Inter font */
+.inter-unique {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 318;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+    background-color: #777777;
+    color: #000000; /* Default text color */
 }
 
-a {
-    color: #660000; /* Link color */
-    text-decoration: none;
+/* Styling links */
+.inter-unique a {
+    color: #000000;
+    text-decoration: underline;
 }
 
-a:hover {
-    color: #660000; /* Hover link color */
-    text-decoration: none;
-}
-header, footer {
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    background-color: #AAAAAA; /* Header and Footer Background */
+/* Styling paragraph text */
+.inter-unique p {
+    color: #000000; /* Paragraph text color */
 }
 
-header .logo img {
-    height: 50px; /* Adjust the height as needed */
+/* Ensuring links inside paragraphs are also styled correctly */
+.inter-unique p a {
+    color: #000000;
+    text-decoration: underline;
 }
 
-header .hamburger {
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #333;
+/* Additional styles for headings */
+.inter-unique h1, .inter-unique h2, .inter-unique h3, .inter-unique h4, .inter-unique h5, .inter-unique h6 {
+    color: #000000;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #000000; /* Ensure heading text color */
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
-    
+/* Styling footer */
+.inter-unique footer {
+    color: #000000;
+    background-color: inherit; /* Ensure background is inherited from body */
 }
 
-p, li {
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: #AAAAAA; /* Menu Background */
+.inter-unique footer a {
+    color: #000000;
+    text-decoration: underline;
 }
 
-#menuContent a, #menuContent b {
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
-    color: #AAAAAA;
-    padding: 12px 0;
-    text-decoration: none;
-    display: block;
+/* Styling menu */
+.inter-unique nav {
+    color: #000000;
+    background-color: inherit; /* Ensure background is inherited from body */
 }
 
-#menuContent a:hover {
-    background-color: #AAAAAA;
-}
-main {
-    flex: 1; /* Makes the main content area grow to fill available space */
-    padding: 20px;
-    background-color: #AAAAAA; /* Ensure main background is consistent */
-}
-
-footer {
-    text-align: center;
-    padding: 10px 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #000000; /* Footer Background */
-    z-index: 1000; /* Ensures the footer stays above other content */
-    color: #000000; /* Ensure footer text color */
+.inter-unique nav a {
+    color: #000000;
+    text-decoration: underline;
 }
