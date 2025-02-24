@@ -1,0 +1,12 @@
+# This is a security.txt file for AngerShade.com
+# For more information on the security.txt standard, visit https://securitytxt.org/
+
+Contact: mailto:security@angershade.com
+Contact: https://angershade.com/security
+Expires: 2025-12-31T23:59:59Z
+Encryption: https://angershade.com/pgp-key.txt
+Preferred-Languages: en
+Canonical: https://angershade.com/.well-known/security.txt
+Policy: https://angershade.com/security-policy
+Acknowledgments: https://angershade.com/hall-of-fame
+Hiring: https://angershade.com/careers
