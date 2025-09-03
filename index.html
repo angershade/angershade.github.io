@@ -1,183 +1,40 @@
+<!-- template.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Angershade</title>
-  <style>
-    :root{
-      /* Tweakables (JS will auto-adjust these at runtime) */
-      --overlay: .48;                 /* darkness of the scrim (0–1) */
-      --blur: 0px;                    /* background blur for busy images */
-      --saturate: 1;                  /* 0.8–1.2 usually fine */
-      --grayscale: 0;                 /* 0–1; nudge toward 0.15 if colors clash */
-      --bg-position: center center;   /* fallback if data-position missing */
-      --text-max: 72ch;               /* max text width */
-    }
 
-    *{ box-sizing: border-box; }
-    html, body{ height:100%; margin:0; }
-
-    body{ 
-      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif; 
-      color: #fff; background: #111; 
-    }
-
-    .hero{
-      position: relative;
-      min-height: 100dvh; /* covers the full viewport height incl. mobile UI */
-      display: grid;
-      place-items: center;
-      padding: clamp(1.5rem, 4vw, 6rem);
-      text-align: center;
-      isolation: isolate; /* ensure pseudo elements layer correctly */
-    }
-
-    /* The photo background layer */
-    .hero::before{
-      content: "";
-      position: absolute; inset: 0;
-      background-image: var(--bg-image, none);
-      background-size: cover;
-      background-position: var(--bg-position);
-      background-repeat: no-repeat;
-      filter: blur(var(--blur)) saturate(var(--saturate)) grayscale(var(--grayscale));
-      transform: scale(1.03); /* prevents blur from revealing edges */
-      z-index: -2;
-    }
-
-    /* The adaptive gradient "scrim" for contrast */
-    .hero::after{
-      content: "";
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(180deg,
-          rgba(0,0,0, calc(var(--overlay) + 0.20)) 0%,
-          rgba(0,0,0, var(--overlay)) 55%,
-          rgba(0,0,0, calc(var(--overlay) + 0.25)) 100%);
-      z-index: -1;
-    }
-
-    main{ max-width: var(--text-max); margin-inline: auto; }
-
-    h1{ font-size: clamp(2rem, 6vw, 4rem); line-height: 1.1; margin: 0 0 .75rem; }
-    p { font-size: clamp(1rem, 2.4vw, 1.25rem); margin: 0 auto 1rem; opacity: .95; }
-
-    .lede{ opacity: .9; }
-    .shadowy{ text-shadow: 0 2px 8px rgba(0,0,0,.65); }
-
-    .cta{
-      display: inline-block;
-      margin-top: 1.25rem;
-      padding: .8rem 1.1rem;
-      border-radius: .9rem;
-      border: 1px solid rgba(255,255,255,.35);
-      background: rgba(255,255,255,.08);
-      color: #fff; text-decoration: none; font-weight: 600;
-      backdrop-filter: blur(4px);
-    }
-
-    @media (prefers-reduced-motion: no-preference){
-      .hero{ animation: subtle-zoom 22s ease-in-out infinite alternate; }
-      @keyframes subtle-zoom{ from{ transform: scale(1) } to{ transform: scale(1.015) } }
-    }
-  </style>
+  <!-- Relative paths keep this portable on GitHub Pages & Cloudflare Pages -->
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <script src="./assets/js/media-hero.js" defer></script>
 </head>
 <body>
 
-  <!-- USAGE --------------------------------------------------------------
-       1) Put your image file in the same folder as this HTML (avoids CORS).
-       2) Set data-bg to that filename, e.g. "bg.jpg" or "photo.webp".
-       3) Optional: data-position for focal point (e.g. "top center").
-       4) Text stays readable via the adaptive scrim + optional blur.
-  ----------------------------------------------------------------------->
-  <section class="hero shadowy" data-bg="https://angershade.com/Angershade/NewShortAS-Background.png" data-position="center center">
+  <!-- Video background example -->
+  <section class="media-hero"
+           data-video="./media/your-video.mp4"
+           data-poster="https://brand.angershade.com/abbrevlogobackground.png"
+           data-position="center center">
     <main>
-
+ <!--     <h1>Readable text over a looping video</h1>
+      <p class="lede">
+        Drop an MP4/MOV into <code>/media</code> and this template auto-tunes contrast so your copy stays readable.
+      </p>
+      <a class="cta" href="#">Call to Action</a> -->
     </main>
   </section>
 
-  <script>
-  (function(){
-    const hero = document.querySelector('.hero');
-    const src  = hero?.dataset.bg;
-    const pos  = hero?.dataset.position || getComputedStyle(document.documentElement).getPropertyValue('--bg-position') || 'center center';
+  <!-- Image background example
+  <section class="media-hero" data-bg="./media/your-image.jpg" data-position="top center">
+    <main>
+      <h1>Readable text over an image</h1>
+      <p class="lede">Same adaptive tuning, now for photos.</p>
+      <a class="cta" href="#">Learn more</a>
+    </main>
+  </section>
+  -->
 
-    if(!src){
-      console.warn('No data-bg provided on .hero. Set data-bg="your-image.jpg".');
-      return;
-    }
-
-    // Set background via CSS var so pseudo-element can use it
-    document.documentElement.style.setProperty('--bg-image', `url("${src}")`);
-    document.documentElement.style.setProperty('--bg-position', pos);
-
-    // Auto-adjust overlay/blur based on average luminance + contrast
-    // Note: For cross-origin images (e.g. outside your domain), the canvas
-    // becomes "tainted" and pixel reads will fail. Keeping the image file
-    // next to this HTML avoids that problem and keeps everything same-origin.
-
-    const img = new Image();
-    img.crossOrigin = 'anonymous'; // has no effect for local files; helpful if your server sends CORS headers
-    img.src = src;
-
-    img.onload = function(){
-      try{
-        const w = 48, h = 48; // tiny sample for speed
-        const canvas = document.createElement('canvas');
-        canvas.width = w; canvas.height = h;
-        const ctx = canvas.getContext('2d');
-        // draw with cover-like sizing to preserve composition trend
-        const ratio = Math.max(w / img.naturalWidth, h / img.naturalHeight);
-        const dw = img.naturalWidth * ratio;
-        const dh = img.naturalHeight * ratio;
-        const dx = (w - dw) / 2;
-        const dy = (h - dh) / 2;
-        ctx.drawImage(img, dx, dy, dw, dh);
-        const { data } = ctx.getImageData(0, 0, w, h);
-
-        let sum = 0, sumSq = 0, n = 0;
-        for(let i = 0; i < data.length; i += 4){
-          const r = data[i], g = data[i+1], b = data[i+2];
-          // sRGB luminance per Rec. 709
-          const y = 0.2126*r + 0.7152*g + 0.0722*b; // 0..255
-          sum += y; sumSq += y*y; n++;
-        }
-        const avg = sum / n; // 0..255
-        const variance = Math.max(0, (sumSq / n) - (avg*avg));
-        const stdev = Math.sqrt(variance); // measure of busyness/contrast
-
-        // Map avg brightness to overlay strength (darker overlay for brighter images)
-        const min = 0.34, max = 0.70; // keep text AAA-friendly while not crushing dark photos
-        const overlay = clamp(min + (avg/255)*(max - min), min, max);
-
-        // Busy images get a touch of blur (0–3px). Calm images: 0–1px.
-        const blur = stdev > 60 ? map(stdev, 60, 90, 1.5, 3.0) : map(stdev, 20, 60, 0.0, 1.5);
-
-        // Slight desaturation for neon color bombs
-        const saturate = stdev > 75 ? 0.9 : 1.0;
-
-        document.documentElement.style.setProperty('--overlay', overlay.toFixed(2));
-        document.documentElement.style.setProperty('--blur', `${clamp(blur, 0, 3).toFixed(2)}px`);
-        document.documentElement.style.setProperty('--saturate', saturate.toFixed(2));
-      }catch(err){
-        // Most likely a CORS-tainted canvas. Fall back to a safe overlay.
-        console.warn('Adaptive tuning skipped (likely CORS). Using conservative defaults.', err);
-        document.documentElement.style.setProperty('--overlay', '.55');
-        document.documentElement.style.setProperty('--blur', '1px');
-      }
-    };
-
-    img.onerror = function(){
-      console.error('Background image failed to load. Check data-bg path and file name.');
-    };
-
-    function clamp(v, lo, hi){ return Math.min(hi, Math.max(lo, v)); }
-    function map(v, inMin, inMax, outMin, outMax){
-      const t = (v - inMin) / (inMax - inMin);
-      return outMin + clamp(t, 0, 1) * (outMax - outMin);
-    }
-  })();
-  </script>
 </body>
 </html>
