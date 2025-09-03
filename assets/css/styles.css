@@ -1,0 +1,81 @@
+:root{
+  /* Global defaults; per-section overrides are set via CSS variables on each .media-hero */
+  --overlay: .48;               /* darkness of scrim (0–1) */
+  --blur: 0px;                  /* background blur */
+  --saturate: 1;                /* slight desaturation when scenes are busy */
+  --grayscale: 0;               /* 0–1; bump toward 0.15 if colors clash */
+  --bg-position: center center; /* fallback if data-position missing */
+  --text-max: 72ch;             /* max readable text width */
+}
+
+*{ box-sizing: border-box; }
+html, body{ height:100%; margin:0; }
+body{
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
+  color:#fff; background:#111;
+}
+
+.media-hero{
+  position: relative;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.5rem, 4vw, 6rem);
+  text-align: center;
+  isolation: isolate; /* new stacking context */
+  overflow: hidden;
+}
+
+/* IMAGE background is painted with a pseudo-element */
+.media-hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image: var(--bg-image, none);
+  background-size: cover;
+  background-position: var(--bg-position);
+  background-repeat: no-repeat;
+  filter: blur(var(--blur)) saturate(var(--saturate)) grayscale(var(--grayscale));
+  transform: scale(1.03);
+  z-index:-2;
+}
+
+/* Scrim sits above image or video to provide consistent contrast */
+.media-hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg,
+      rgba(0,0,0, calc(var(--overlay) + 0.20)) 0%,
+      rgba(0,0,0, var(--overlay)) 55%,
+      rgba(0,0,0, calc(var(--overlay) + 0.25)) 100%);
+  z-index:-1;
+}
+
+/* VIDEO background is an actual element placed behind content */
+.media-hero .bg-video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit: cover;
+  object-position: var(--bg-position);
+  filter: blur(var(--blur)) saturate(var(--saturate)) grayscale(var(--grayscale));
+  transform: scale(1.03);
+  z-index:-2;
+  pointer-events:none;
+}
+
+.media-hero > main{ max-width: var(--text-max); margin-inline:auto; }
+.media-hero h1{ font-size: clamp(2rem, 6vw, 4rem); line-height:1.1; margin:0 0 .75rem; }
+.media-hero p { font-size: clamp(1rem, 2.4vw, 1.25rem); margin: 0 auto 1rem; opacity:.95; }
+.media-hero .lede{ text-shadow: 0 2px 8px rgba(0,0,0,.65); }
+
+.cta{
+  display:inline-block; margin-top:1.25rem; padding:.8rem 1.1rem;
+  border-radius:.9rem; border:1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.08); color:#fff; text-decoration:none; font-weight:600;
+  backdrop-filter: blur(4px);
+}
+
+@media (prefers-reduced-motion: no-preference){
+  .media-hero{ animation: subtle-zoom 22s ease-in-out infinite alternate; }
+  @keyframes subtle-zoom{ from{ transform:scale(1) } to{ transform:scale(1.015) } }
+}
