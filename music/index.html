@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Audio Player</title>
+  <link rel="stylesheet" href="./player.css" />
+</head>
+
+<body>
+  <main class="wrap" oncontextmenu="return false;">
+    <!-- INFO STRIP -->
+    <div class="track-meta" aria-live="polite">
+      <div class="title" id="meta-title">Stupid Girl ver1</div>
+      <div class="sub">
+        <span id="meta-artist">Brian Yegge</span> •
+        <span id="meta-album">Reinterpreted</span> •
+        <span id="meta-duration">00:00</span>
+      </div>
+    </div>
+
+    <!-- PLAYER BAR -->
+    <div class="player">
+      <button class="play" id="playBtn" aria-label="Play">
+        <!-- Play (triangle) / Pause (two bars) toggled in CSS -->
+        <span class="icon icon-play" aria-hidden="true"></span>
+      </button>
+
+      <input
+        id="scrubber"
+        class="scrubber"
+        type="range"
+        min="0"
+        max="1000"
+        value="0"
+        step="1"
+        aria-label="Seek"
+      />
+
+      <div class="time" id="timeNow">00:00</div>
+      <div class="time sep">/</div>
+      <div class="time" id="timeTotal">00:00</div>
+    </div>
+
+    <!-- Hidden audio element (no native controls). -->
+    <!-- IMPORTANT: put your Cloudflare R2 (or CDN) URL below -->
+    <audio
+      id="audio"
+      preload="metadata"
+      crossorigin="anonymous"
+      controlslist="nodownload noplaybackrate noremoteplayback"
+      src="https://cdn.example.com/audio/stupid-girl-ver1.mp3">
+    </audio>
+  </main>
+
+  <script type="module" src="./player.js"></script>
+</body>
+</html>
