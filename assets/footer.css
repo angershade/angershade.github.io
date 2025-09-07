@@ -1,0 +1,33 @@
+/* /assets/footer.css */
+.site-footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;   /* centers horizontally */
+  align-items: center;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* Optional dark theme tuning */
+.site-footer {
+  background: transparent;   /* inherits page bg */
+  color: inherit;
+}
+
+.site-footer .footer-link {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.site-footer .footer-link:hover {
+  border-bottom-style: solid;
+}
+
+/* Ensure the page can scroll behind a sticky footer if content is short */
+html, body {
+  min-height: 100%;
+}
